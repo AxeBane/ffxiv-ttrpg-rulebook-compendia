@@ -6,6 +6,10 @@ This module supports the images supplied by the [FFXIV TTRPG Icons Pack](https:/
 
 **For installation**, copy the following into Foundry VTT's manual install bar: ``https://github.com/AxeBane/ffxiv-ttrpg-core-rulebook-compendia/releases/latest/download/module.json``
 
+## Translations
+
+Compendium translations use Babele 2.9.1 or later and the FFXIV system's translation support. See [Translating the compendia](TRANSLATING.md) for export instructions, file locations, editable fields, entry keys, and testing.
+
 ## Disclaimer
 
 This module is not affiliated in any way with Square Enix or any of its subsidiaries. Do not reach out to them for support.

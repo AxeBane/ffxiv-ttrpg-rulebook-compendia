@@ -13,7 +13,7 @@ Export Jobs when translating abilities granted by a job. Jobs contain embedded c
 
 ## Translate values, preserve identifiers
 
-Keep JSON property names and entry identifiers unchanged. Translate the text values inside each entry. For example, keep `Monk (LV 30)` as the lookup key and translate the `name` and `job_name` values beneath it.
+Keep JSON property names and entry identifiers unchanged. Translate the text values inside each entry. For example, preserve a job's generated lookup key and translate the `name` and `job_name` values beneath it.
 
 | Exported field | Content to translate |
 | --- | --- |
@@ -33,7 +33,7 @@ An example partial Jobs translation looks like this. Use the identifiers from yo
 {
   "label": "Classes",
   "entries": {
-    "Monk (LV 30)": {
+    "monk_lv_30": {
       "name": "Moine (LV 30)",
       "job_name": "Moine",
       "abilityGrants": {
@@ -53,9 +53,9 @@ Partial translations are supported. Omit fields or entries you have not translat
 
 Matching keys are calculated from source names. Translation lookups can also use the source folder hierarchy to distinguish different versions of the same ability. These identifiers are generated automatically; there are no item key fields to maintain.
 
-Babele's standard export can use document names for top-level keys. Nested job grants use folder-qualified keys such as `monk_lv30_primary_bootshine`. Preserve whichever identifiers appear in your export.
+This module applies folder-qualified keys to its top-level compendium exports, including bulk exports and the legacy format. Nested job grants also use folder-qualified keys such as `monk_lv30_primary_bootshine`. Preserve the identifiers from your own export.
 
-The standard name-based export can combine same-named standalone actions into one entry. Use the separate entries under each job's `abilityGrants` when different levels need different translated text.
+Same-named standalone actions in different folders have separate entries. If two documents produce the same key, the export uses the document ID for the duplicate to preserve both entries. Existing translations keyed by source name or document ID remain supported.
 
 Renaming a source entry or moving it to another source folder can change its generated identifier. Re-export after those changes and transfer your translated values to the corresponding entries.
 

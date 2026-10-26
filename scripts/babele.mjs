@@ -1,7 +1,8 @@
 import { getContentKey, getTranslationKey } from "../../../systems/ffxiv/module/helpers/content-keys.mjs";
 import { ACTOR_TEXT_FIELDS, ITEM_TEXT_FIELDS, extractAutomation, extractDocument, getTranslationMetadata, translateAutomation, translateGrants, translateLabels } from "./translations.mjs";
+import { registerTranslationExports } from "./translation-export.mjs";
 
-Hooks.once("babele.init", (babele) => {
+Hooks.once("babele.init", async (babele) => {
   Hooks.once("i18nInit", () => {
     const lang = game.settings.get("core", "language");
     babele.register({ module: "ffxiv-ttrpg-core-rulebook-compendia", lang, dir: `translations/${lang}` });
@@ -10,7 +11,7 @@ Hooks.once("babele.init", (babele) => {
     ffxivKey: getContentKey,
     ffxivTranslationKey: getTranslationKey,
   });
-  const identity = { export: ["ffxivTranslationKey", "name", "_id"], match: ["ffxivTranslationKey", "ffxivKey", "_id", "name", "sourceId"] };
+  const identity = { export: ["ffxivTranslationKey", "name", "_id"], match: ["_id", "ffxivTranslationKey", "ffxivKey", "name", "sourceId"] };
   const abilityGrants = (source, translation) => translateGrants(source, translation);
   abilityGrants.extract = (source) => extractDocument({ system: { ability_grants: source } }).abilityGrants;
   const summonActors = (source, translation) => translateGrants(source, translation, true);
@@ -51,4 +52,9 @@ Hooks.once("babele.init", (babele) => {
     RollTable: { _identity: identity },
     Macro: { _identity: identity },
   });
+  const [{ TranslationExport }, { ExportKeys }] = await Promise.all([
+    import("../../babele/script/export/translation-export.js"),
+    import("../../babele/script/identity/export-key-allocator.js"),
+  ]);
+  registerTranslationExports(TranslationExport, ExportKeys);
 });

@@ -59,6 +59,8 @@ Same-named standalone actions in different folders have separate entries. If two
 
 Renaming a source entry or moving it to another source folder can change its generated identifier. Re-export after those changes and transfer your translated values to the corresponding entries.
 
+World copies of these compendia reuse the original pack's translations when their documents retain their original IDs or compendium source references. Matching and exports use the original entries' keys, including when the copied folders have translated names. Existing translations registered for the copied pack take precedence. Reload after duplicating a pack. Copies that have lost both their original IDs and source references need their own translation file.
+
 ## Install and load the translation
 
 Save the extracted JSON under this module's `translations/<language>/` directory. Use Foundry's language code, such as `fr`, `de`, or `en`, and retain the exported filename.

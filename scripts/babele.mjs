@@ -1,6 +1,7 @@
 import { getContentKey, getTranslationKey } from "../../../systems/ffxiv/module/helpers/content-keys.mjs";
 import { ACTOR_TEXT_FIELDS, ITEM_TEXT_FIELDS, extractAutomation, extractDocument, getTranslationMetadata, translateAutomation, translateGrants, translateLabels } from "./translations.mjs";
 import { registerTranslationExports } from "./translation-export.mjs";
+import { getOriginalTranslationKey, translateCompendiumCopies } from "./translation-copies.mjs";
 
 Hooks.once("babele.init", async (babele) => {
   Hooks.once("i18nInit", () => {
@@ -9,8 +10,11 @@ Hooks.once("babele.init", async (babele) => {
   });
   babele.registerIdentityExtractors({
     ffxivKey: getContentKey,
-    ffxivTranslationKey: getTranslationKey,
+    ffxivTranslationKey: (source) => getOriginalTranslationKey(source) ?? getTranslationKey(source),
   });
+  babele.registerTranslationMatchStrategy({ name: "ffxivOriginal", keyFor: getOriginalTranslationKey });
+  Hooks.on("babele.ready", translateCompendiumCopies);
+  Hooks.on("babele.reinitialized", translateCompendiumCopies);
   const identity = { export: ["ffxivTranslationKey", "name", "_id"], match: ["_id", "ffxivTranslationKey", "ffxivKey", "name", "sourceId"] };
   const abilityGrants = (source, translation) => translateGrants(source, translation);
   abilityGrants.extract = (source) => extractDocument({ system: { ability_grants: source } }).abilityGrants;

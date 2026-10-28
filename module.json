@@ -2,8 +2,8 @@
   "id": "ffxiv-ttrpg-core-rulebook-compendia",
   "title": "FFXIV TTRPG Rulebook Compendia",
   "manifest": "https://github.com/AxeBane/ffxiv-ttrpg-rulebook-compendia/releases/latest/download/module.json",
-  "download": "https://github.com/AxeBane/ffxiv-ttrpg-rulebook-compendia/releases/download/3.1.3/module.zip",
-  "version": "3.1.3",
+  "download": "https://github.com/AxeBane/ffxiv-ttrpg-rulebook-compendia/releases/download/3.2.0/module.zip",
+  "version": "3.2.0",
   "compatibility": {
     "minimum": "14.366",
     "verified": "14.369"

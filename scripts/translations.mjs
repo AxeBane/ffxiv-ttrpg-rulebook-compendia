@@ -11,7 +11,7 @@ const LABEL_FIELDS = ["name", "description", "label", "buttonLabel", "criticalBu
 export function getTranslationMetadata(source, translation = {}) {
   if (!Object.keys(translation).length) return source.flags?.babele;
   const sourceText = {};
-  for (const field of ["name", "cost", "target", "combo"]) {
+  for (const field of ["name", "cost", "target", "combo", "base_effect"]) {
     const original = getSourceText(source, field);
     const translated = field === "name" ? translation.name ?? source.name : translation[field];
     if (typeof translated === "string") sourceText[field] = { original, translated };

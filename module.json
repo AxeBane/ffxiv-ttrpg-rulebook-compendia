@@ -96,6 +96,11 @@
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
+      },
+      "flags": {
+        "ffxiv": {
+          "rules": true
+        }
       }
     },
     {

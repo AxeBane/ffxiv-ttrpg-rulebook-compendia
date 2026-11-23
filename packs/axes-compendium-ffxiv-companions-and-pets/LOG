@@ -1,3 +1,14 @@
-2026/11/23-00:50:55.219 5a08 Recovering log #714
-2026/11/23-00:50:55.224 5a08 Delete type=0 #714
-2026/11/23-00:50:55.224 5a08 Delete type=3 #713
+2026/11/23-11:27:30.088 5ad4 Recovering log #726
+2026/11/23-11:27:30.088 5ad4 Level-0 table #728: started
+2026/11/23-11:27:30.091 5ad4 Level-0 table #728: 22304 bytes OK
+2026/11/23-11:27:30.093 5ad4 Delete type=0 #726
+2026/11/23-11:27:30.093 5ad4 Delete type=3 #725
+2026/11/23-11:27:30.095 d2c Compacting 4@0 + 1@1 files
+2026/11/23-11:27:30.101 d2c Generated table #730@0: 145 keys, 86334 bytes
+2026/11/23-11:27:30.101 d2c Compacted 4@0 + 1@1 files => 86334 bytes
+2026/11/23-11:27:30.101 d2c compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/11/23-11:27:30.101 d2c Delete type=2 #695
+2026/11/23-11:27:30.101 d2c Delete type=2 #711
+2026/11/23-11:27:30.103 d2c Delete type=2 #720
+2026/11/23-11:27:30.103 d2c Delete type=2 #723
+2026/11/23-11:27:30.103 d2c Delete type=2 #728

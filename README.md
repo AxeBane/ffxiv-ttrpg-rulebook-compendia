@@ -8,7 +8,7 @@ This module supports the images supplied by the [FFXIV TTRPG Icons Pack](https:/
 
 ## Translations
 
-Compendium translations use Babele 2.9.1 or later and the FFXIV system's translation support. See [Translating the compendia](TRANSLATING.md) for export instructions, file locations, editable fields, entry keys, and testing.
+Compendium translations use Babele 2.9.1 or later and the FFXIV system's translation support. See [Translating the compendia](translations/TRANSLATING.md) for export instructions, file locations, editable fields, entry keys, and testing.
 
 ## Disclaimer
 
